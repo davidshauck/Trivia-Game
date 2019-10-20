@@ -1,53 +1,136 @@
-html,
 body {
-  height: 100%;
+  background-image: url("../images/jeopardy-background.jpg");
+ }
+
+html {
+  box-sizing: border-box;
 }
 
 body {
   text-align: center;
-  background-image: url("../images/tacky.jpg");
 }
 
-#container {
-  width: 960px;
-  height: 95%;
-  box-sizing: border-box;
-  margin: 2.5% auto;
-  background-color: #fff17a;
-}
-
-#timer {
+.container {
   position: relative;
-  top: 5%;
+  width: 1200px;
+  margin: auto;
 }
 
 #quiz-area {
-    position: relative;
-    top: 10%;
-    font-size: 24px;
+  width: 600px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 30px;
+  padding-left: 45px;
+  padding-top: 20px;
+
+}
+#timer {
+  /* position: relative;
+  top: 5%; */
+  font-family: 'Six Caps', sans-serif;
+  font-size: 40px;
+  margin-right: 50px;
 }
 
+#wins {
+  /* position: relative;
+  top: 5%; */
+  font-family: 'Six Caps', sans-serif;
+  font-size: 40px;
+}
+
+#answer-button {
+  display: inline-block;
+  height: 70px;
+  width: 45%;
+  background-color: white;
+  margin: 10px;
+  padding: 0px;
+  font-family: serif;
+  color: black;
+  font-size: 50px;
+
+}
+
+#losses {
+  /* position: relative;
+  top: 5%; */
+  font-family: 'Six Caps', sans-serif;
+  font-size: 40px;
+
+}
+
+div.absolute {
+    position: absolute;
+
+    right: 12px;
+    top: 52px;
+    width: 648px;
+    height: 297px;
+    /* background-color: blue; */
+    /* height 50px; */
+    /* background-color:  */
+    /* top: 10%; */
+    font-size: 42px;
+    color: white;
+}
+
+div.absolute2 {
+  position: absolute;
+  right: 12px;
+  top: 348px;
+  width: 580px;
+  height: 70px;
+  /* background-color: blue; */
+  /* height 50px; */
+  /* background-color:  */
+  /* top: 10%; */
+  font-size: 30px;
+  color: white;
+  margin-right: 35px;
+}
+
+
 button {
-  display: block;
-  width: 50%;
+  display: inline-block;
+  width: 20%;
   height: 20%;
   margin: 0 auto;
   font-size: 42px;
-  cursor: pointer;
+  /* cursor: pointer; */
   background: transparent;
   border: 0;
 }
 
+#playAgain {
+  width: 50%;
+  /* height: 20%; */
+  margin: 0 auto;
+  font-size: 24px;
+  /* cursor: pointer; */
+  background: white;
+  color: black;
+  border: 0;
+}
+
+#title {
+  /* font-family: 'Six Caps', sans-serif; */
+  font-family: 'Baloo Paaji', cursive;
+  font-size: 120px;
+  color: white;
+}
+
 img {
-  height: 200px;
+  width: 1200px;
+  float: left;
 }
 
 h1 {
   padding-top: 2.5%;
-  font-family: Geo, sans-serif;
-  font-size: 6.5em;
+  /* font-family: Geo, sans-serif; */
+  font-size: 48px;
   font-weight: bold;
-  color: blue;
+  color: black;
 }
 
 h2 {
@@ -61,12 +144,23 @@ h3 {
 }
 
 #start {
-  margin-top: 10%;
-  background: pink;
-  border: 2px solid blue;
+  margin-top: 22%;
+  font-size: 50px;
+  color: black;
+  background-color: white;
+  width: 210px;
+  margin-right: 0px;
+  text-transform: uppercase;
+  /* background: red; */
+  /* border: 2px solid black; */
+  /* width: 200px; */
 }
 
 button:hover {
-  background: pink;
-  border: 2px solid blue;
+  /* background: pink; */
+  color: lightblue;
+}
+
+#answer-button:hover {
+  background-color: lightblue;
 }

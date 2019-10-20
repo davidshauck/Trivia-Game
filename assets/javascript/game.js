@@ -1,13 +1,13 @@
 // creating global variables
-let timer = 10;
+let timer = 15;
 let intervalID;
 let questionNumber = 0;
 let wins = 0;
 let losses = 0;
+let audio = document.getElementById("myAudio"); 
 
 // object containg the questions, possible answers and correct answer
 let questions = [
-
     {
         question: "Which brackets enclose arrays?",
         possibleAnswers: ["{ }", "[ ]", "( )", ":-)"],
@@ -19,7 +19,7 @@ let questions = [
         correctAnswer: "[ ]"
     }, 
     {
-        question: "Which word is often paired wit 'if'?",
+        question: "Which word is often paired with 'if'?",
         possibleAnswers: ["then", "switch", "case", "else"],
         correctAnswer: "else"
     },
@@ -29,7 +29,7 @@ let questions = [
         correctAnswer: "make"
     },
     {
-        question: "What is a public end point of a website?",
+        question: "What is the name of a website's public endpoint?",
         possibleAnswers: ["API", "URL", "FBI", "KFC"],
         correctAnswer: "API"
     },
@@ -40,23 +40,32 @@ let questions = [
     },
     {
         question: "Who is your favorite Bootcamp instructor?",
-        possibleAnswers: ["Jim", "Irving", "Justin", "Dan"],
-        correctAnswer: "All of the above!"
+        possibleAnswers: ["Jim", "Dan", "Irving", "Justin"],
+        correctAnswer: "ALL OF THE ABOVE!!!11!1!"
     }
-
 ];
 
 // loading jquery
 $(document).ready(function() {
 
+    function playAudio() { 
+        audio.play(); 
+    }
+
+    function pauseAudio() { 
+        audio.pause(); 
+      } 
+      
+
 // function for if the player wants to go again
 function playAgain () {
-    // clear out all the variables
-    timer = 10;
+    // clear out all the variables, reset timer to 15 seconds
+    timer = 15;
     intervalID;
     questionNumber = 0;
     wins = 0;
     losses = 0;
+    // empty the quiz area div
     $("#quiz-area").empty();
     // run the questions function
     askingQuestions();
@@ -67,12 +76,17 @@ $("#start").on("click", askingQuestions);
 
 // function that loads new question
 function askingQuestions() {
-    // reset timer to 10 seconds
-    timer = 10;
+    playAudio();
+
+    // reset timer to 15 seconds
+    timer = 15;
     // populate div with new time text
-    $(".absolute2").html("<p>Time remaining: 10 seconds");
+    $(".absolute2").html("<p>Time remaining: 15 seconds");
     // populate quiz div with next question
-    $("#quiz-area").html(questions[questionNumber].question + "<p>");    
+    $("#quiz-area").html(questions[questionNumber].question + "<p>").css({
+        marginTop: "0px",
+        fontSize: "48px"
+    });    
     // start timer, call countdown function
     intervalID = setInterval(countdown, 1000);
     // answer button loop
@@ -93,6 +107,9 @@ function askingQuestions() {
     $(".answer-button").click(function() {
         // create a new variable popuulated with the data from the selected button
         let chosenAnswer = $(this).attr("data-answer");
+        // pause audio, reset to beginning of song
+        pauseAudio();
+        audio.currentTime = 0;
         // execute function that sees if the answer is correct
         checkWin(chosenAnswer);
     });
@@ -103,10 +120,14 @@ function askingQuestions() {
         if (a === questions[questionNumber].correctAnswer) {
             // stop the timer
             clearInterval(intervalID);
+            $(".absolute2").html(" ");
             // display "Correct!" on screen
-            $("#quiz-area").html("Correct!");
-            // set the timer back to 10 seconds
-            timer = 10;
+            $("#quiz-area").html("Correct!").css({
+                marginTop: "170px",
+                fontSize: "100px"
+            });
+            // set the timer back to 15 seconds
+            timer = 15;
             // increment question by 1
             questionNumber += 1;
             // increment wins by 1  
@@ -123,10 +144,14 @@ function askingQuestions() {
         else {
             // stop the clock
             clearInterval(intervalID);
+            $(".absolute2").html(" ");
             // tell them they blew it
-            $("#quiz-area").html("Sorry! The correct answer was " + questions[questionNumber].correctAnswer);
-            // reset timer to 10 seconds
-            timer = 10;
+            $("#quiz-area").html('Sorry! <p>The correct answer was: <p> "' + questions[questionNumber].correctAnswer +'"').css({
+                marginTop: "54px",
+                fontSize: "80px"
+            });
+            // reset timer to 15 seconds
+            timer = 15;
             // increment question by 1  
             questionNumber += 1;
             // increment losses by 1 
@@ -140,24 +165,25 @@ function askingQuestions() {
             }
         }
     }
-
 }
 
 // what to do when the game is over
 function gameOver() {
-    // stop the clock
+    // stop the timer
     clearInterval(intervalID);
     // display the wins and losses
     $("#quiz-area").html("Final score:" +
-    "<p>Wins: " + wins +
-    "  |  Losses: " + losses + 
-    "<br><button id='start'>Again?</button></p>"
-    ).css("margin-top", "20px");
+    "<p>WINS: " + wins +
+    "  |  LOSSES: " + losses + 
+    "<br><button id='start'>AGAIN?</button></p>"
+    ).css({
+        marginTop: "80px",
+        fontSize: "60px"
+    });;
     // see if they want to go again?
     $("#start").css("margin-top", "5%").on("click", playAgain);
     // clear timer div
     $(".absolute2").html(" ");
-
 }
 
 // timer function
@@ -168,12 +194,15 @@ function countdown() {
     $(".absolute2").html("<p>Time remaining: " + timer + " seconds");
     // execute function to see if we've run out of time
     checkTimer();
-
 }
+
 // function to see if player has run out of time
 function checkTimer () {
     // if time has run out
     if (timer === 0) {
+        // pause audio, reset to beginning of song
+        pauseAudio();
+        audio.currentTime = 0;
         // increment losses by 1
         losses += 1;
         // increment questions by 1
@@ -183,12 +212,16 @@ function checkTimer () {
     }
 }
 
-// what happens when timer hits 0 on a question
+// what happens when timer runs out on a question
 function timeUp() {
     // stop the timer
     clearInterval(intervalID);
+    $(".absolute2").html(" ");
     // display the correct answer
-    $("#quiz-area").html("The correct answer was " + questions[questionNumber-1].correctAnswer);
+    $("#quiz-area").html('The correct answer was: <p> "' + questions[questionNumber-1].correctAnswer + '"').css({
+        marginTop: "100px",
+        fontSize: "80px"
+    });;
     // check to see if we've hit the end of the game
     if (questionNumber === questions.length) {
       setTimeout(gameOver, 3000);

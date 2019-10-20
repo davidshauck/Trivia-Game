@@ -5,7 +5,7 @@ let questionNumber = 0;
 let wins = 0;
 let losses = 0;
 
-// questions object
+// object containg the questions, possible answers and correct answer
 let questions = [
 
     {
@@ -15,7 +15,7 @@ let questions = [
     }, 
     {
         question: "Which brackets enclose objects?",
-        possibleAnswers: ["< >", "( )", "[ ]", ";"],
+        possibleAnswers: ["< >", "( )", "[ ]", "o-O"],
         correctAnswer: "[ ]"
     }, 
     {
@@ -30,7 +30,7 @@ let questions = [
     },
     {
         question: "What is a public end point of a website?",
-        possibleAnswers: ["API", "URL", "FBI", "CFK"],
+        possibleAnswers: ["API", "URL", "FBI", "KFC"],
         correctAnswer: "API"
     },
     {

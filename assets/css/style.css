@@ -12,62 +12,85 @@ body {
 
 .container {
   position: relative;
-  width: 1920px;
+  width: 1200px;
+  margin: auto;
 }
 
 #quiz-area {
-  width: 800px;
+  width: 600px;
   font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 48px;
-  line-height: 20px;
+  font-size: 24px;
   padding-left: 45px;
-  padding-top: 40px;
-
+  padding-top: 20px;
+}
+#timer {
+  /* position: relative;
+  top: 5%; */
+  font-family: 'Six Caps', sans-serif;
+  font-size: 4px;
+  margin-right: 50px;
 }
 
 #wins {
+  /* position: relative;
+  top: 5%; */
   font-family: 'Six Caps', sans-serif;
-  font-size: 40px;
+  font-size: 24px;
 }
 
 #answer-button {
   display: inline-block;
-  height: 120px;
+  height: 70px;
   width: 45%;
   background-color: white;
   margin: 10px;
   padding: 0px;
-  font-family: 'Anton', sans-serif;
+  font-family: serif;
   color: #888;
-  font-size: 70px;
+  font-size: 50px;
+  font-family: 'Anton', sans-serif;
+
 }
 
 #losses {
+  /* position: relative;
+  top: 5%; */
   font-family: 'Six Caps', sans-serif;
-  font-size: 40px;
+  font-size: 24px;
+
 }
 
 div.absolute {
     position: absolute;
-    right: 240px;
-    top: 65px;
-    width: 870px;
-    height: 380px;
-    font-size: 42px;
+
+    right: 12px;
+    top: 52px;
+    width: 648px;
+    height: 297px;
+    /* background-color: blue; */
+    /* height 50px; */
+    /* background-color:  */
+    /* top: 10%; */
+    font-size: 4px;
     color: white;
 }
 
 div.absolute2 {
+  font-family: 'Open Sans Condensed', sans-serif;
   position: absolute;
-  right: 205px;
-  top: 430px;
-  width: 870px;
-  height: 95px;
-  font-size: 40px;
+  right: 12px;
+  top: 348px;
+  width: 580px;
+  height: 70px;
+  /* background-color: blue; */
+  /* height 50px; */
+  /* background-color:  */
+  /* top: 10%; */
+  font-size: 36px;
   color: white;
   margin-right: 35px;
-  font-family: 'Open Sans Condensed', sans-serif;
 }
+
 
 button {
   display: inline-block;
@@ -75,42 +98,67 @@ button {
   height: 20%;
   margin: 0 auto;
   font-size: 42px;
+  /* cursor: pointer; */
+  background: transparent;
   border: 0;
 }
 
 #playAgain {
   width: 50%;
+  /* height: 20%; */
   margin: 0 auto;
   font-size: 24px;
+  /* cursor: pointer; */
   background: white;
   color: black;
   border: 0;
 }
 
 #title {
+  /* font-family: 'Six Caps', sans-serif; */
   font-family: 'Baloo Paaji', cursive;
   font-size: 120px;
   color: white;
 }
 
-/* h1 {
+img {
+  width: 1200px;
+  float: left;
+}
+
+h1 {
   padding-top: 2.5%;
-  font-size: 48px;
+  /* font-family: Geo, sans-serif; */
+  font-size: 8px;
   font-weight: bold;
   color: black;
-} */
+}
+
+h2 {
+  margin-bottom: 25px;
+  font-size: 8px;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
 
 #start {
-  margin-top: 20%;
+  margin-top: 22%;
   font-size: 50px;
   color: black;
   background-color: white;
   width: 210px;
   margin-right: 0px;
   text-transform: uppercase;
+  /* background: red; */
+  /* border: 2px solid black; */
+  /* width: 200px; */
 }
 
 button:hover {
+  /* background: pink; */
   color: lightblue;
 }
 

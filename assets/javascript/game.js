@@ -6,7 +6,7 @@ let wins = 0;
 let losses = 0;
 let audio = document.getElementById("myAudio"); 
 
-// object containg the questions, possible answers and correct answer
+// object containing the questions, possible answers and correct answer
 let questions = [
     {
         question: "Which brackets enclose arrays?",
@@ -29,7 +29,7 @@ let questions = [
         correctAnswer: "make"
     },
     {
-        question: "What is the name of a website's public endpoint?",
+        question: "What is a website's public endpoint?",
         possibleAnswers: ["API", "URL", "FBI", "KFC"],
         correctAnswer: "API"
     },
@@ -85,7 +85,7 @@ function askingQuestions() {
     // populate quiz div with next question
     $("#quiz-area").html(questions[questionNumber].question + "<p>").css({
         marginTop: "0px",
-        fontSize: "48px"
+        fontSize: "40px"
     });    
     // start timer, call countdown function
     intervalID = setInterval(countdown, 1000);
@@ -123,8 +123,8 @@ function askingQuestions() {
             $(".absolute2").html(" ");
             // display "Correct!" on screen
             $("#quiz-area").html("Correct!").css({
-                marginTop: "170px",
-                fontSize: "100px"
+                marginTop: "85px",
+                fontSize: "80px"
             });
             // set the timer back to 15 seconds
             timer = 15;
@@ -147,8 +147,8 @@ function askingQuestions() {
             $(".absolute2").html(" ");
             // tell them they blew it
             $("#quiz-area").html('Sorry! <p>The correct answer was: <p> "' + questions[questionNumber].correctAnswer +'"').css({
-                marginTop: "54px",
-                fontSize: "80px"
+                marginTop: "20px",
+                fontSize: "60px"
             });
             // reset timer to 15 seconds
             timer = 15;
@@ -177,7 +177,7 @@ function gameOver() {
     "  |  LOSSES: " + losses + 
     "<br><button id='start'>AGAIN?</button></p>"
     ).css({
-        marginTop: "80px",
+        marginTop: "20px",
         fontSize: "60px"
     });;
     // see if they want to go again?
@@ -219,8 +219,8 @@ function timeUp() {
     $(".absolute2").html(" ");
     // display the correct answer
     $("#quiz-area").html('The correct answer was: <p> "' + questions[questionNumber-1].correctAnswer + '"').css({
-        marginTop: "100px",
-        fontSize: "80px"
+        marginTop: "45px",
+        fontSize: "60px"
     });;
     // check to see if we've hit the end of the game
     if (questionNumber === questions.length) {

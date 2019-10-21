@@ -80,7 +80,7 @@ function askingQuestions() {
         fontSize: "40px"
     });    
     // start timer, call countdown function
-    intervalID = setInterval(countdown, 1000);
+    intervalID = setInterval(countdown, 975);
     // answer button loop
     for (let i = 0; i < questions[questionNumber].possibleAnswers.length; i++) {
         //create answer burtton

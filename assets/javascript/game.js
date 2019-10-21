@@ -172,13 +172,13 @@ function gameOver() {
     // stop the timer
     clearInterval(intervalID);
     // display the wins and losses
-    $("#quiz-area").html("Final score:" +
-    "<p>WINS: " + wins +
-    "  |  LOSSES: " + losses + 
+    $("#quiz-area").html("Final results:" +
+    "<p>CORRECT: " + wins +
+    "  |  INCORRECT: " + losses + 
     "<br><button id='start'>AGAIN?</button></p>"
     ).css({
         marginTop: "20px",
-        fontSize: "60px"
+        fontSize: "54px"
     });;
     // see if they want to go again?
     $("#start").css("margin-top", "5%").on("click", playAgain);

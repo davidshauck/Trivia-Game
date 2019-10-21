@@ -55,14 +55,13 @@ body {
 }
 
 div.absolute {
-    position: absolute;
-
-    right: 12px;
-    top: 52px;
-    width: 648px;
-    height: 297px;
-    font-size: 4px;
-    color: white;
+  position: absolute;
+  right: 12px;
+  top: 52px;
+  width: 648px;
+  height: 297px;
+  font-size: 4px;
+  color: white;
 }
 
 div.absolute2 {
@@ -76,7 +75,6 @@ div.absolute2 {
   color: white;
   margin-right: 35px;
 }
-
 
 button {
   display: inline-block;
@@ -130,17 +128,55 @@ button:hover {
 @media screen and (max-width: 1199px) {
 
   div.absolute {
-  right: 0px;
-  left: 500px;
+    right: 0px;
+    left: 500px;
+  }
+
+  div.absolute2 {
+    right: 0px;
+    left: 500px;
+  }
+
+  .container {
+    clear: all;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  #title {
+    left-margin: auto;
   }
 
 }
 
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 768px) {
 
   div.absolute {
-  right: 0px;
-  left: 500px;
+    right: 0px;
+    left: 500px;
+  }
+
+  div.absolute2 {
+    right: 0px;
+    left: 500px;
+  }
+
+  img {
+    padding: 0px;
+  }
+
+  .container {
+    clear: all;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  #quiz-area {
+    padding-left: 0px;
+  }
+
+  #title {
+    left-margin: 5%;
   }
 
 }
@@ -148,7 +184,25 @@ button:hover {
 @media screen and (max-width: 468px) {
 
   div.absolute {
-  right: -400px;
+    right: -400px;
+  }
+
+  div.absolute2 {
+    right: -400px;
+  }
+
+  .container {
+    clear: all;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  #quiz-area {
+    padding-left: 0px;
+  }
+
+  img {
+    padding: 0px;
   }
 
 }

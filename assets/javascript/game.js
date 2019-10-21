@@ -5,6 +5,7 @@ let questionNumber = 0;
 let wins = 0;
 let losses = 0;
 let audio = document.getElementById("myAudio"); 
+let fadeText;
 
 // object containing the questions, possible answers and correct answer
 let questions = [
@@ -46,16 +47,7 @@ let questions = [
 ];
 
 // loading jquery
-$(document).ready(function() {
-
-    function playAudio() { 
-        audio.play(); 
-    }
-
-    function pauseAudio() { 
-        audio.pause(); 
-      } 
-      
+$(document).ready(function() {      
 
 // function for if the player wants to go again
 function playAgain () {
@@ -120,19 +112,23 @@ function askingQuestions() {
         if (a === questions[questionNumber].correctAnswer) {
             // stop the timer
             clearInterval(intervalID);
+            // clear the timer div
             $(".absolute2").html(" ");
-            // display "Correct!" on screen
-            $("#quiz-area").html("Correct!").css({
+            // display "Correct!" with animation
+            fadeText = $("#quiz-area");
+            fadeText.html("Correct!")
+            .css({
                 marginTop: "85px",
                 fontSize: "80px"
             });
+            $(fadeText).hide().appendTo("#quiz-area").slideDown(1500);
             // set the timer back to 15 seconds
             timer = 15;
             // increment question by 1
             questionNumber += 1;
             // increment wins by 1  
             wins += 1;
-            // check to see if we've reached the end of the questions (could have DRY'd this with a function)
+            // check to see if we've reached the end of the questions
             if (questionNumber === questions.length) {
                 setTimeout(gameOver, 3000);
             }
@@ -144,19 +140,23 @@ function askingQuestions() {
         else {
             // stop the clock
             clearInterval(intervalID);
+            // clear the timer div
             $(".absolute2").html(" ");
-            // tell them they blew it
-            $("#quiz-area").html('Sorry! <p>The correct answer was: <p> "' + questions[questionNumber].correctAnswer +'"').css({
-                marginTop: "20px",
+            // tell them they blew it with animation
+            fadeText = $("#quiz-area");
+            fadeText.html('Sorry! <p>The correct answer was: <p> "' + questions[questionNumber].correctAnswer +'"')
+            .css({
+                marginTop: "30px",
                 fontSize: "60px"
             });
+            $(fadeText).hide().appendTo("#quiz-area").slideDown(1500);
             // reset timer to 15 seconds
             timer = 15;
             // increment question by 1  
             questionNumber += 1;
             // increment losses by 1 
             losses += 1;
-            // check to see if we've reached the end of the questions (could have DRY'd this with a function)
+            // check to see if we've reached the end of the questions
             if (questionNumber === questions.length) {
                 setTimeout(gameOver, 3000);
             }
@@ -171,15 +171,17 @@ function askingQuestions() {
 function gameOver() {
     // stop the timer
     clearInterval(intervalID);
-    // display the wins and losses
-    $("#quiz-area").html("Final results:" +
+    // display the wins and losses with animation
+    fadeText = $("#quiz-area");
+    fadeText.html("Final results:" +
     "<p>CORRECT: " + wins +
     "  |  INCORRECT: " + losses + 
     "<br><button id='start'>AGAIN?</button></p>"
     ).css({
         marginTop: "20px",
         fontSize: "54px"
-    });;
+    });
+    $(fadeText).hide().appendTo("#quiz-area").slideDown(1500);
     // see if they want to go again?
     $("#start").css("margin-top", "5%").on("click", playAgain);
     // clear timer div
@@ -217,11 +219,14 @@ function timeUp() {
     // stop the timer
     clearInterval(intervalID);
     $(".absolute2").html(" ");
-    // display the correct answer
-    $("#quiz-area").html('The correct answer was: <p> "' + questions[questionNumber-1].correctAnswer + '"').css({
+    // display the correct answer with animation
+    fadeText = $("#quiz-area");
+    fadeText.html('The correct answer was: <p> "' + questions[questionNumber-1].correctAnswer + '"')
+    .css({
         marginTop: "45px",
         fontSize: "60px"
-    });;
+    });
+    $(fadeText).hide().appendTo("#quiz-area").slideDown(1500);
     // check to see if we've hit the end of the game
     if (questionNumber === questions.length) {
       setTimeout(gameOver, 3000);
@@ -230,5 +235,14 @@ function timeUp() {
       setTimeout(askingQuestions, 3000);
     }
 }
+
+// jeopardy theme functions
+function playAudio() { 
+    audio.play(); 
+}
+
+function pauseAudio() { 
+    audio.pause(); 
+} 
 
 });

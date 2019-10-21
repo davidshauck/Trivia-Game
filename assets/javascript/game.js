@@ -119,7 +119,7 @@ function askingQuestions() {
             fadeText.html("Correct!")
             .css({
                 marginTop: "85px",
-                fontSize: "80px"
+                fontSize: "80px",
             });
             $(fadeText).hide().appendTo("#quiz-area").slideDown(1500);
             // set the timer back to 15 seconds
@@ -223,7 +223,7 @@ function timeUp() {
     fadeText = $("#quiz-area");
     fadeText.html('The correct answer was: <p> "' + questions[questionNumber-1].correctAnswer + '"')
     .css({
-        marginTop: "45px",
+        marginTop: "55px",
         fontSize: "60px"
     });
     $(fadeText).hide().appendTo("#quiz-area").slideDown(1500);

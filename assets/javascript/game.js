@@ -10,12 +10,12 @@ let fadeText;
 // object containing the questions, possible answers and correct answer
 let questions = [
     {
-        question: "Which brackets enclose arrays?",
+        question: "Which brackets enclose objects?",
         possibleAnswers: ["{ }", "[ ]", "( )", ":-)"],
         correctAnswer: "{ }"
     }, 
     {
-        question: "Which brackets enclose objects?",
+        question: "Which brackets enclose arrays?",
         possibleAnswers: ["< >", "( )", "[ ]", "o-O"],
         correctAnswer: "[ ]"
     }, 

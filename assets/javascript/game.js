@@ -51,6 +51,8 @@ $(document).ready(function() {
 
 // function for if the player wants to go again
 function playAgain () {
+    // start music back at 0
+    audio.currentTime = 0;
     // clear out all the variables, reset timer to 15 seconds
     timer = 15;
     intervalID;
@@ -169,6 +171,9 @@ function askingQuestions() {
 
 // what to do when the game is over
 function gameOver() {
+    // play outro theme
+    audio.currentTime = 26;
+    playAudio();
     // stop the timer
     clearInterval(intervalID);
     // display the wins and losses with animation
